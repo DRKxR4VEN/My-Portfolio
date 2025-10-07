@@ -373,7 +373,87 @@ window.addEventListener('load', () => {
     }
 });
 
+// HUD Card Interactions
+const hudCard = document.querySelector('.parent');
+const socialButtons = document.querySelectorAll('.social-button');
+const viewMoreButton = document.querySelector('.view-more-button');
+
+// Enhanced HUD hover effects
+if (hudCard) {
+    hudCard.addEventListener('mouseenter', () => {
+        // Add subtle animation to showcase info
+        const showcaseInfo = document.querySelector('.showcase-info');
+        if (showcaseInfo) {
+            showcaseInfo.style.transform = 'translateX(10px)';
+            showcaseInfo.style.transition = 'transform 0.3s ease';
+        }
+    });
+    
+    hudCard.addEventListener('mouseleave', () => {
+        const showcaseInfo = document.querySelector('.showcase-info');
+        if (showcaseInfo) {
+            showcaseInfo.style.transform = 'translateX(0)';
+        }
+    });
+}
+
+// Social button interactions
+socialButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        // Add click animation
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = '';
+        }, 150);
+        
+        // Show notification based on button
+        const platforms = ['Instagram', 'Twitter', 'Discord'];
+        showNotification(`Đang mở ${platforms[index]}...`, 'info');
+    });
+});
+
+// View more button interaction
+if (viewMoreButton) {
+    viewMoreButton.addEventListener('click', () => {
+        // Scroll to projects section
+        const projectsSection = document.querySelector('#projects');
+        if (projectsSection) {
+            projectsSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+        
+        // Add click animation
+        viewMoreButton.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            viewMoreButton.style.transform = '';
+        }, 150);
+    });
+}
+
+// Feature items animation on scroll
+const featureItems = document.querySelectorAll('.feature-item');
+const featureObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+            }, index * 200);
+        }
+    });
+}, { threshold: 0.1 });
+
+featureItems.forEach(item => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(-30px)';
+    item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    featureObserver.observe(item);
+});
+
 // Console welcome message
 console.log('%c🚀 Portfolio Website Loaded Successfully!', 'color: #667eea; font-size: 16px; font-weight: bold;');
 console.log('%c💻 Built with modern web technologies', 'color: #4facfe; font-size: 14px;');
 console.log('%c✨ Enjoy the experience!', 'color: #764ba2; font-size: 14px;');
+console.log('%c🎮 HUD Card 3D Interactive Ready!', 'color: #00ffd6; font-size: 14px;');
