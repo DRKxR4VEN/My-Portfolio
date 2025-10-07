@@ -835,10 +835,10 @@ section {
 .card {
     height: 100%;
     border-radius: 50px;
-    background: linear-gradient(135deg, rgb(0, 255, 214) 0%, rgb(8, 226, 96) 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     transition: all 0.5s ease-in-out;
     transform-style: preserve-3d;
-    box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
+    box-shadow: rgba(102, 126, 234, 0.3) 40px 50px 25px -40px, rgba(118, 75, 162, 0.2) 0px 25px 25px -5px;
 }
 
 .glass {
@@ -861,16 +861,18 @@ section {
 
 .content .title {
     display: block;
-    color: #00894d;
+    color: #ffffff;
     font-weight: 900;
     font-size: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .content .text {
     display: block;
-    color: rgba(0, 137, 78, 0.7647058824);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 15px;
     margin-top: 20px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .bottom {
@@ -899,19 +901,32 @@ section {
 }
 
 .bottom .view-more .view-more-button {
-    background: none;
-    border: none;
-    color: #00c37b;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
     font-weight: bolder;
     font-size: 12px;
     cursor: pointer;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    padding: 4px 8px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.bottom .view-more .view-more-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .bottom .view-more .svg {
     fill: none;
-    stroke: #00c37b;
+    stroke: #ffffff;
     stroke-width: 3px;
     max-height: 15px;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
 }
 
 .bottom .social-buttons-container {
@@ -948,24 +963,26 @@ section {
 
 .bottom .social-buttons-container .social-button .svg {
     width: 15px;
-    fill: #00894d;
+    fill: #667eea;
 }
 
 .bottom .social-buttons-container .social-button:hover {
-    background: black;
+    background: rgba(79, 172, 254, 0.2);
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(79, 172, 254, 0.3);
 }
 
 .bottom .social-buttons-container .social-button:hover .svg {
-    fill: white;
+    fill: #4facfe;
 }
 
 .bottom .social-buttons-container .social-button:active {
-    background: rgb(255, 234, 0);
+    background: rgba(102, 126, 234, 0.3);
+    transform: scale(0.95);
 }
 
 .bottom .social-buttons-container .social-button:active .svg {
-    fill: black;
+    fill: #667eea;
 }
 
 .logo {
@@ -982,10 +999,10 @@ section {
     border-radius: 50%;
     top: 0;
     right: 0;
-    box-shadow: rgba(100, 100, 111, 0.2) -10px 10px 20px 0px;
+    box-shadow: rgba(102, 126, 234, 0.3) -10px 10px 20px 0px;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
-    background: rgba(0, 249, 203, 0.2);
+    background: rgba(79, 172, 254, 0.2);
     transition: all 0.5s ease-in-out;
 }
 
@@ -1034,17 +1051,18 @@ section {
 
 .logo .circle5 .svg {
     width: 20px;
-    fill: white;
+    fill: #ffffff;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
 }
 
 .parent:hover .card {
     transform: rotate3d(1, 1, 0, 30deg);
-    box-shadow: rgba(5, 71, 17, 0.3) 30px 50px 25px -40px, rgba(5, 71, 17, 0.1) 0px 25px 30px 0px;
+    box-shadow: rgba(102, 126, 234, 0.4) 30px 50px 25px -40px, rgba(118, 75, 162, 0.2) 0px 25px 30px 0px;
 }
 
 .parent:hover .card .bottom .social-buttons-container .social-button {
     transform: translate3d(0, 0, 50px);
-    box-shadow: rgba(5, 71, 17, 0.2) -5px 20px 10px 0px;
+    box-shadow: rgba(102, 126, 234, 0.3) -5px 20px 10px 0px;
 }
 
 .parent:hover .card .logo .circle2 {
