@@ -378,6 +378,24 @@ const hudCard = document.querySelector('.parent');
 const socialButtons = document.querySelectorAll('.social-button');
 const viewMoreButton = document.querySelector('.view-more-button');
 
+// Theme Toggle Functionality
+const themeToggle = document.getElementById('hud-theme-toggle');
+const showcaseSection = document.querySelector('.showcase');
+
+if (themeToggle && showcaseSection) {
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            // Apply pink theme
+            showcaseSection.classList.add('theme-pink');
+            showNotification('Đã chuyển sang theme hồng!', 'success');
+        } else {
+            // Remove pink theme (back to default)
+            showcaseSection.classList.remove('theme-pink');
+            showNotification('Đã chuyển về theme mặc định!', 'info');
+        }
+    });
+}
+
 // Enhanced HUD hover effects
 if (hudCard) {
     hudCard.addEventListener('mouseenter', () => {
